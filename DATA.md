@@ -12,6 +12,7 @@ Please download [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_object
           |calib/
           |image_2/
           |label_2/
+          |velodyne/
         |testing/
           |calib/
           |image_2/
