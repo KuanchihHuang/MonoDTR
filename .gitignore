@@ -2,3 +2,6 @@
 data/
 workdirs/
 **/__pycache__/
+
+visualDet3D/networks/lib/ops/dcn/*.so
+visualDet3D/networks/lib/ops/iou3d/*.so
