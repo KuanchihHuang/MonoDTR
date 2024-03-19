@@ -22,8 +22,8 @@ cfg.trainer = trainer
 
 ## path
 path = edict()
-path.data_path = "/tmp4/kuanchih/dataset/KITTI/detection/training" # used in visualDet3D/data/.../dataset
-path.test_path = "/tmp4/kuanchih/dataset/KITTI/detection/testing" # used in visualDet3D/data/.../dataset
+path.data_path = "./data/KITTI/object/training" # used in visualDet3D/data/.../dataset
+path.test_path = "./data/KITTI/object/testing" # used in visualDet3D/data/.../dataset
 path.visualDet3D_path = "./visualDet3D" # The path should point to the inner subfolder
 path.project_path = "./workdirs" # or other path for pickle files, checkpoints, tensorboard logging and output files.
 if not os.path.isdir(path.project_path):
@@ -39,6 +39,8 @@ if not os.path.isdir(path.log_path):
 path.checkpoint_path = os.path.join(path.project_path, "checkpoint")
 if not os.path.isdir(path.checkpoint_path):
     os.mkdir(path.checkpoint_path)
+
+path.pretrained_checkpoint = os.path.join(path.checkpoint_path, "MonoDTR_pedestrian.pth")
 
 path.preprocessed_path = os.path.join(path.project_path, "output")
 if not os.path.isdir(path.preprocessed_path):

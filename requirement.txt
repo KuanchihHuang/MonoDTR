@@ -12,3 +12,5 @@ tensorflow >= 2.0
 cython
 tqdm
 pyquaternion
+coloredlogs
+ipykernel

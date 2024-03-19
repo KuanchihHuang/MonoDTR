@@ -15,8 +15,7 @@ Please refer to [INSTALL.md](INSTALL.md) for installation and to [DATA.md](DATA.
 Move to root and train the network with `$EXP_NAME`:
 
 ```sh
- cd #MonoDTR_ROOT
- ./launcher/train.sh config/config.py 0 $EXP_NAME
+ ./launchers/train.sh config/config.py 0 $EXP_NAME
 ```
 
 Note: this repo only supports single GPU training. Also, the training randomness for monocular 3D object detection may cause the variance of ±1 AP3D.
@@ -27,7 +26,7 @@ Note: this repo only supports single GPU training. Also, the training randomness
 To evaluate on the validation set using checkpoint `$CHECKPOINT_PATH`:
 
 ```sh
- ./launcher/eval.sh config/config.py 0 $CHECKPOINT_PATH validation
+ ./launchers/eval.sh config/config.py 0 workdirs/MonoDTR/checkpoint/MonoDTR.pth validation
 ```
 
 We provide a good checkpoint for the car category on train/val split [here](https://drive.google.com/file/d/1mQzqjnosra5JE1sJKzSRzdn3R010G0Gh/view?usp=sharing).
