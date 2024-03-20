@@ -1,6 +1,9 @@
+.idea/
 .vscode/
+
 data/
 workdirs/
+checkpoint/
 **/__pycache__/
 
 visualDet3D/networks/lib/ops/dcn/*.so

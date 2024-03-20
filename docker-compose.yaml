@@ -1,0 +1,14 @@
+services:
+  mono:
+    build: .
+    command: sleep infinity
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - ./data:/app/MonoDTR/data
+      - ./checkpoint:/app/MonoDTR/workdirs/MonoDTR/checkpoint
