@@ -24,5 +24,5 @@ You can modify the path in config/config.py (for train / val split), and then ru
 ```sh
 cd #MonoDTR_ROOT
 ./launchers/det_precompute.sh config/config.py train # precompute image database and anchors mean/std
-python scripts/depth_gt_compute.py --config=config/config.py # precompute depth gt for training
+python3 scripts/depth_gt_compute.py --config=config/config.py # precompute depth gt for training
 ```
