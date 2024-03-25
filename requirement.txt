@@ -14,3 +14,4 @@ tqdm
 pyquaternion
 coloredlogs
 ipykernel
+ninja
