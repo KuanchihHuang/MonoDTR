@@ -40,7 +40,7 @@ path.checkpoint_path = os.path.join(path.project_path, "checkpoint")
 if not os.path.isdir(path.checkpoint_path):
     os.mkdir(path.checkpoint_path)
 
-path.pretrained_checkpoint = os.path.join(path.checkpoint_path, "MonoDTR_pedestrian.pth")
+path.pretrained_checkpoint = os.path.join(path.checkpoint_path, "MonoDTR.pth")
 
 path.preprocessed_path = os.path.join(path.project_path, "output")
 if not os.path.isdir(path.preprocessed_path):

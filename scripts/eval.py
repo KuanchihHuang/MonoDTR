@@ -23,7 +23,6 @@ def main(config:str="config/config.py",
     torch.cuda.set_device(cfg.trainer.gpu)
     
     # Set up dataset and dataloader
-    is_test_train = split_to_test == 'training'
     if split_to_test == 'training':
         dataset_name = cfg.data.train_dataset
     elif split_to_test == 'test':
