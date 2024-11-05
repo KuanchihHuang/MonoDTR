@@ -9,10 +9,14 @@ from kitti360_helpers.kitti_360_util import convert_kitti_image_text_to_kitti_36
 
 if __name__ == "__main__":
 
-    split = "train_val"
-    label_folder  = os.path.join("data", split, "label")
-    label_folder = "data/kitti_360/train_val/label"
-    pred_folder = "/ssd2/kuanchih/MonoDTR/workdirs/MonoDTR/output/validation/data_mapped"
+    split = "train_val" #testing
+    label_folder  = os.path.join("data/kitti_360", split, "label")
+    
+    if split == "train_val":
+        pred_folder = "/ssd2/kuanchih/MonoDTR/workdirs/MonoDTR/output/validation/data_mapped"
+    elif split == "testing":
+        pred_folder = "/ssd2/kuanchih/MonoDTR/workdirs_test/MonoDTR/output/test/data_mapped"
+
     evaluate_kitti_360_verbose(pred_folder= pred_folder, gt_folder= label_folder)
 
     max_dist_th           = 4
