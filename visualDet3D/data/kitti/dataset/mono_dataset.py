@@ -32,6 +32,8 @@ else:
     #Python 2
     import cv2
 
+import skimage.measure
+
 @DATASET_DICT.register_module
 class KittiMonoDataset(torch.utils.data.Dataset):
     """Some Information about KittiDataset"""
@@ -97,6 +99,7 @@ class KittiMonoDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         kitti_data = self.imdb[index % len(self.imdb)]
+        depth_path = kitti_data.image2_path.replace("image", "depth").replace("png","npy")
         # The calib and label has been preloaded to minimize the time in each indexing
         if index >= len(self.imdb):
             kitti_data.output_dict = {
@@ -127,10 +130,20 @@ class KittiMonoDataset(torch.utils.data.Dataset):
 
         if self.is_train:
             if (ori_p2[0, 3] * transformed_P2[0, 3]) >= 0: # not mirrored or swaped, depth should base on pointclouds projecting through P2
-                depth = cv2.imread(os.path.join(self.preprocessed_path, 'training', 'depth', "P2%06d.png" % index), -1)
+                #depth = cv2.imread(os.path.join(self.preprocessed_path, 'training', 'depth', "P2%06d.png" % index), -1)
+                depth = np.load(depth_path)
+                depth = cv2.resize(depth, (1408, 384), cv2.INTER_NEAREST)
+
+                #print(image.shape, transformed_image.shape, depth.shape)
+                #exit()
             else: # mirrored and swap, depth should base on pointclouds projecting through P3, and also mirrored
-                depth = cv2.imread(os.path.join(self.preprocessed_path, 'training', 'depth', "P2%06d.png" % index), -1)
+                #depth = cv2.imread(os.path.join(self.preprocessed_path, 'training', 'depth', "P2%06d.png" % index), -1)
+                depth = np.load(depth_path)
+                depth = cv2.resize(depth, (1408, 384), cv2.INTER_NEAREST)
+
                 depth = depth[:, ::-1]
+            depth = skimage.measure.block_reduce(depth, (4,4), np.max)
+
         else:
             depth = None
 

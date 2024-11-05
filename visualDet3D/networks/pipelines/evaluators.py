@@ -41,7 +41,7 @@ def evaluate_kitti_obj(cfg:EasyDict,
         print("Finish evaluation.")
         return
     result_texts = evaluate(
-        label_path=os.path.join(cfg.path.data_path, 'label_2'),
+        label_path=os.path.join(cfg.path.data_path, 'label'),
         result_path=result_path,
         label_split_file=cfg.data.val_split_file,
         current_classes=[i for i in range(len(cfg.obj_types))],

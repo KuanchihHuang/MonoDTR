@@ -101,9 +101,9 @@ def read_one_split(cfg, index_names, data_root_dir, output_dict, data_split = 't
 
         if data_split == 'training' and anchor_prior:
             original_image = image.copy()
-            baseline = (calib.P2[0, 3] - calib.P3[0, 3]) / calib.P2[0, 0]
+            #baseline = (calib.P2[0, 3] - calib.P3[0, 3]) / calib.P2[0, 0]
             image, P2, label = preprocess(original_image, p2=deepcopy(calib.P2), labels=deepcopy(data_frame.label))
-            _,  P3 = preprocess(original_image, p2=deepcopy(calib.P3))
+            #_,  P3 = preprocess(original_image, p2=deepcopy(calib.P3))
 
             ## Computing statistic for positive anchors
             if len(data_frame.label) > 0:

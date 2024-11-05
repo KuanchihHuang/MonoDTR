@@ -35,17 +35,17 @@ class KittiCalib:
         self.data = calib
 
         self.P2 = np.array(self.data['P2']).reshape(3,4)
-        self.P3 = np.array(self.data['P3']).reshape(3,4)
+        #self.P3 = np.array(self.data['P3']).reshape(3,4)
 
-        R0_rect = np.zeros([4, 4])
-        R0_rect[0:3, 0:3] = np.array(self.data['R0_rect']).reshape(3, 3)
-        R0_rect[3, 3] = 1
-        self.R0_rect = R0_rect
+        #R0_rect = np.zeros([4, 4])
+        #R0_rect[0:3, 0:3] = np.array(self.data['R0_rect']).reshape(3, 3)
+        #R0_rect[3, 3] = 1
+        #self.R0_rect = R0_rect
 
-        Tr_velo_to_cam = np.zeros([4, 4])
-        Tr_velo_to_cam[0:3, :] = np.array(self.data['Tr_velo_to_cam']).reshape(3, 4)
-        Tr_velo_to_cam[3, 3] = 1
-        self.Tr_velo_to_cam = Tr_velo_to_cam
+        #Tr_velo_to_cam = np.zeros([4, 4])
+        #Tr_velo_to_cam[0:3, :] = np.array(self.data['Tr_velo_to_cam']).reshape(3, 4)
+        #Tr_velo_to_cam[3, 3] = 1
+        #self.Tr_velo_to_cam = Tr_velo_to_cam
 
         return self
     
@@ -211,9 +211,9 @@ class KittiData:
             output_dict: decide what to output
         '''
         self.calib_path = os.path.join(root_dir, "calib", idx+'.txt')
-        self.image2_path = os.path.join(root_dir, "image_2", idx+'.png')
+        self.image2_path = os.path.join(root_dir, "image", idx+'.png')
         self.image3_path = os.path.join(root_dir, 'image_3', idx+'.png')
-        self.label2_path = os.path.join(root_dir, "label_2", idx+'.txt')
+        self.label2_path = os.path.join(root_dir, "label", idx+'.txt')
         self.velodyne_path = os.path.join(root_dir, "velodyne", idx+'.bin')
         self.output_dict = output_dict
         if self.output_dict is None:

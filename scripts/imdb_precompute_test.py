@@ -52,7 +52,7 @@ def main(config="config/config.py"):
     time_display_inter = 100  # define the inverval displaying time consumed in loop
     data_root_dir = cfg.path.test_path  # the base directory of training dataset
     calib_path = os.path.join(data_root_dir, 'calib')
-    list_calib = os.listdir(calib_path)
+    list_calib = sorted(os.listdir(calib_path))
     N = len(list_calib)
     # no need for image, could be modified for extended use
     output_dict = {
@@ -63,7 +63,7 @@ def main(config="config/config.py"):
     }
 
     num_test_file = N
-    test_names = ["%06d" % i for i in range(num_test_file)]
+    test_names = [i.split(".")[0] for i in list_calib]
     read_one_split(cfg, test_names, data_root_dir, output_dict,
                    'test', time_display_inter)
 
