@@ -36,7 +36,11 @@ This branch is used for KITTI-360 dataset. The results on KITTI-360 test set can
     ```bash
     pip install -r requirements.txt
     ```
-    Git clone kitti360 scripts.
+  - Build ops (deform convs and iou3d).
+    ```bash
+    ./make.sh
+    ```
+  - Git clone kitti360 scripts.
     ```bash
     git clone https://github.com/autonomousvision/kitti360Scripts
     cd kitti360Scripts
