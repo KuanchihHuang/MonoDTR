@@ -5,6 +5,11 @@ Kuan-Chih Huang, Tsung-Han Wu, Hung-Ting Su, Winston H. Hsu.
 
 <img src="resources/example.jpg" alt="vis" style="zoom:50%;" />
 
+## Update 
+
+The code for the KITTI-360 dataset is now available in the [kitti360 branch](https://github.com/KuanchihHuang/MonoDTR/tree/kitti360), and the results can be viewed on the [KITTI-360 leaderboard](https://www.cvlibs.net/datasets/kitti-360/eval_bbox_detect_detail.php?benchmark=bbox3d&result=f5508c2c6753b33341f66f1d965f9df51d8671a1).
+
+
 ## Setup
 
 Please refer to [INSTALL.md](INSTALL.md) for installation and to [DATA.md](DATA.md) for data preparation.
